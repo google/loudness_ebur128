@@ -1,0 +1,11 @@
+###############################################################################
+# This project uses bazelmod to manage dependencies.
+###############################################################################
+
+module(
+    name = "loudness_ebur128",
+    version = "1.0.0",
+)
+
+bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "rules_license", version = "1.0.0")
