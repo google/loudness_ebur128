@@ -330,11 +330,11 @@ class EbuR128Analyzer {
   // critical path for good performance of the code, so it attempts to do
   // minimal processing per-sample, and leave as much computation as possible to
   // the per-step update instead.
-  __attribute__((always_inline)) inline void UpdatePerSample(
+  /* __attribute__((always_inline)) */ inline void UpdatePerSample(
       float unfiltered_sample, int channel_index);
 
   // Updates block-level stats for RMS, momentary, and short-term blocks.
-  __attribute__((always_inline)) inline void UpdatePerStep();
+  /* __attribute__((always_inline)) */ inline void UpdatePerStep();
 
   inline void UpdateAccumulatorsPerSample(float unfiltered_sample,
                                           float k_weighted_sample,

@@ -60,7 +60,7 @@ const T* GetDataPosition(const void* audio_data, int64_t sample_index,
                          int64_t planar_stride) = delete;
 
 template <>
-__attribute__((always_inline)) inline const int16_t*
+/* __attribute__((always_inline)) */ inline const int16_t*
 GetDataPosition<int16_t, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
                                                        int64_t sample_index,
                                                        int channel_index,
@@ -71,7 +71,7 @@ GetDataPosition<int16_t, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
 }
 
 template <>
-__attribute__((always_inline)) inline const int16_t*
+/* __attribute__((always_inline)) */ inline const int16_t*
 GetDataPosition<int16_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -80,7 +80,7 @@ GetDataPosition<int16_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const int16_t*
+/* __attribute__((always_inline)) */ inline const int16_t*
 GetDataPosition<int16_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -91,7 +91,7 @@ GetDataPosition<int16_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const int32_t*
+/* __attribute__((always_inline)) */ inline const int32_t*
 GetDataPosition<int32_t, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
                                                        int64_t sample_index,
                                                        int channel_index,
@@ -102,7 +102,7 @@ GetDataPosition<int32_t, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
 }
 
 template <>
-__attribute__((always_inline)) inline const int32_t*
+/* __attribute__((always_inline)) */ inline const int32_t*
 GetDataPosition<int32_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -111,7 +111,7 @@ GetDataPosition<int32_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const int32_t*
+/* __attribute__((always_inline)) */ inline const int32_t*
 GetDataPosition<int32_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -122,7 +122,7 @@ GetDataPosition<int32_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const float*
+/* __attribute__((always_inline)) */ inline const float*
 GetDataPosition<float, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
                                                      int64_t sample_index,
                                                      int channel_index,
@@ -133,7 +133,7 @@ GetDataPosition<float, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
 }
 
 template <>
-__attribute__((always_inline)) inline const float*
+/* __attribute__((always_inline)) */ inline const float*
 GetDataPosition<float, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -142,7 +142,7 @@ GetDataPosition<float, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const float*
+/* __attribute__((always_inline)) */ inline const float*
 GetDataPosition<float, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -153,7 +153,7 @@ GetDataPosition<float, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const double*
+/* __attribute__((always_inline)) */ inline const double*
 GetDataPosition<double, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
                                                       int64_t sample_index,
                                                       int channel_index,
@@ -164,7 +164,7 @@ GetDataPosition<double, EbuR128Analyzer::INTERLEAVED>(const void* audio_data,
 }
 
 template <>
-__attribute__((always_inline)) inline const double*
+/* __attribute__((always_inline)) */ inline const double*
 GetDataPosition<double, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -173,7 +173,7 @@ GetDataPosition<double, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline const double*
+/* __attribute__((always_inline)) */ inline const double*
 GetDataPosition<double, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -196,7 +196,7 @@ float GetSampleFromOrigin(const void* audio_data, int64_t sample_index,
                           int64_t planar_stride) = delete;
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<int16_t, EbuR128Analyzer::INTERLEAVED>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -206,7 +206,7 @@ GetSampleFromOrigin<int16_t, EbuR128Analyzer::INTERLEAVED>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<int16_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -217,7 +217,7 @@ GetSampleFromOrigin<int16_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<int16_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -228,7 +228,7 @@ GetSampleFromOrigin<int16_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<int32_t, EbuR128Analyzer::INTERLEAVED>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -238,7 +238,7 @@ GetSampleFromOrigin<int32_t, EbuR128Analyzer::INTERLEAVED>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<int32_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -249,7 +249,7 @@ GetSampleFromOrigin<int32_t, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<int32_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -260,7 +260,7 @@ GetSampleFromOrigin<int32_t, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<float, EbuR128Analyzer::INTERLEAVED>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -270,7 +270,7 @@ GetSampleFromOrigin<float, EbuR128Analyzer::INTERLEAVED>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<float, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -280,7 +280,7 @@ GetSampleFromOrigin<float, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<float, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -290,7 +290,7 @@ GetSampleFromOrigin<float, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<double, EbuR128Analyzer::INTERLEAVED>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -300,7 +300,7 @@ GetSampleFromOrigin<double, EbuR128Analyzer::INTERLEAVED>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<double, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
@@ -310,7 +310,7 @@ GetSampleFromOrigin<double, EbuR128Analyzer::PLANAR_CONTIGUOUS>(
 }
 
 template <>
-__attribute__((always_inline)) inline float
+/* __attribute__((always_inline)) */ inline float
 GetSampleFromOrigin<double, EbuR128Analyzer::PLANAR_NON_CONTIGUOUS>(
     const void* audio_data, int64_t sample_index, int channel_index,
     int interleaved_stride, int64_t planar_stride) {
