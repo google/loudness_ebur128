@@ -1,0 +1,23 @@
+name: loudness_ebur128_builder
+
+description: Build all of loudness_ebur128.
+
+inputs:
+  platform:
+    description: "The platform to build for."
+    type: string
+    default: linux
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        # Configure platform-specific settings.
+        if [[ "${{inputs.platform}}" == "windows" ]]; then
+          # Windows works best with a very short path as per https://bazel.build/configure/windows#long-path-issues.
+          echo  "startup --output_user_root=C:/" >> .bazelrc
+        fi
+
+        # Build all targets.
+        bazelisk build -c opt  ...

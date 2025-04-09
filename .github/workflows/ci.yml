@@ -1,0 +1,41 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Build
+        uses: ./.github/actions/loudness_ebur128_builder
+        with:
+          platform: linux
+  macos-arm64:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Build
+        uses: ./.github/actions/loudness_ebur128_builder
+        with:
+          platform: macos
+  macos-amd64:
+    runs-on: macos-13
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Build
+        uses: ./.github/actions/loudness_ebur128_builder
+        with:
+          platform: macos
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Build
+        uses: ./.github/actions/loudness_ebur128_builder
+        with:
+          platform: windows

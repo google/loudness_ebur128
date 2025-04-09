@@ -1,0 +1,11 @@
+# Use the default C++ toolchain to build the tools used during the
+# build.
+build --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
+build --enable_platform_specific_config
+
+# Platform specific configuration.
+build:linux --cxxopt=-std=c++20
+
+build:macos --cxxopt=-std=c++20
+
+build:windows --cxxopt=/std:c++20
