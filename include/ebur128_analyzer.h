@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef LOUDNESS_EBUR128_SRC_EBUR128_ANALYZER_H_
-#define LOUDNESS_EBUR128_SRC_EBUR128_ANALYZER_H_
+#ifndef LOUDNESS_EBUR128_INCLUDE_EBUR128_ANALYZER_H_
+#define LOUDNESS_EBUR128_INCLUDE_EBUR128_ANALYZER_H_
 
 #include <array>
 #include <cstdint>
@@ -467,4 +467,4 @@ class EbuR128Analyzer {
 };
 
 }  // namespace loudness
-#endif  // LOUDNESS_EBUR128_SRC_EBUR128_ANALYZER_H_
+#endif  // LOUDNESS_EBUR128_INCLUDE_EBUR128_ANALYZER_H_
