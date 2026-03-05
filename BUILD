@@ -16,6 +16,7 @@ exports_files(["LICENSE"])
 cc_library(
     name = "ebur128_analyzer",
     hdrs = [
+        "include/ebur128_constants.h",
         "include/ebur128_analyzer.h",
     ],
     visibility = ["//visibility:public"],
@@ -32,9 +33,9 @@ cc_library(
         "src/k_weighting.cc",
     ],
     hdrs = [
+        "include/ebur128_constants.h",
         "include/ebur128_analyzer.h",
         "src/audio_data_access_patterns.h",
-        "src/ebur128_constants.h",
         "src/k_weighting.h",
     ],
     visibility = ["//visibility:private"],

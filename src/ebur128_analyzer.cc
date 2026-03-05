@@ -23,7 +23,6 @@
 #include <vector>
 
 #include "src/audio_data_access_patterns.h"
-#include "src/ebur128_constants.h"
 #include "src/k_weighting.h"
 
 namespace loudness {

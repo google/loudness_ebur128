@@ -41,7 +41,6 @@
 #include <cstdint>
 
 #include "include/ebur128_analyzer.h"
-#include "src/ebur128_constants.h"
 
 namespace loudness {
 

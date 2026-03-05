@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef LOUDNESS_EBUR128_SRC_EBUR128_CONSTANTS_H_
-#define LOUDNESS_EBUR128_SRC_EBUR128_CONSTANTS_H_
+#ifndef LOUDNESS_EBUR128_INCLUDE_EBUR128_CONSTANTS_H_
+#define LOUDNESS_EBUR128_INCLUDE_EBUR128_CONSTANTS_H_
 
 #include <cmath>
 #include <cstdint>
@@ -113,4 +113,4 @@ inline constexpr float kNorm16 = 1.0f / std::numeric_limits<int16_t>::max();
 inline constexpr float kNorm32 = 1.0f / std::numeric_limits<int32_t>::max();
 
 }  // namespace loudness
-#endif  // LOUDNESS_EBUR128_SRC_EBUR128_CONSTANTS_H_
+#endif  // LOUDNESS_EBUR128_INCLUDE_EBUR128_CONSTANTS_H_
