@@ -472,6 +472,54 @@ std::optional<float> EbuR128Analyzer::GetRelativeGatedIntegratedLoudness()
   return ClampAndSanitizeDBFS(rel_gated_loudness);
 }
 
+std::optional<float> EbuR128Analyzer::GetRelativeGatedIntegratedLoudness(std::vector<EbuR128Analyzer *> analyzers) {
+  bool all_empty = true;
+  bool all_zero = true;
+  float sum_of_abs_gated_momentary_powers = 0.0f;
+  int64_t num_abs_gated_momentary_powers = 0;
+  for (const auto *analyzer : analyzers) {
+    all_empty &= analyzer->ungated_momentary_powers_.empty();
+    all_zero &= analyzer->num_abs_gated_momentary_powers_ == 0;
+    sum_of_abs_gated_momentary_powers += analyzer->sum_of_abs_gated_momentary_powers_;
+    num_abs_gated_momentary_powers += analyzer->num_abs_gated_momentary_powers_;
+  }
+
+  if (all_empty) {
+    return std::nullopt;
+  }
+
+  if (all_zero) {
+      return kMinLKFS;
+  }
+
+  const float abs_gated_avg_power = sum_of_abs_gated_momentary_powers / num_abs_gated_momentary_powers;
+  const float abs_gated_loudness = GetLoudnessForPower(abs_gated_avg_power);
+
+  const float rel_threshold = abs_gated_loudness + k1770RelativeThresholdLU;
+  const float rel_power_threshold = GetPowerForLoudness(rel_threshold);
+
+  const float effective_power_threshold = std::max(kPowerAbsoluteThreshold, rel_power_threshold);
+
+  float sum_of_rel_gated_momentary_powers = 0.0f;
+  int64_t num_rel_gated_momentary_powers = 0;
+  for (const auto *analyzer : analyzers) {
+    for (float ungated_power : analyzer->ungated_momentary_powers_) {
+      if (ungated_power > effective_power_threshold) {
+        sum_of_rel_gated_momentary_powers += ungated_power;
+        ++num_rel_gated_momentary_powers;
+      }
+    }
+  }
+
+  if (num_rel_gated_momentary_powers == 0) {
+    return kMinLKFS;
+  }
+
+  const float rel_gated_avg_power = sum_of_rel_gated_momentary_powers / num_rel_gated_momentary_powers;
+  const float rel_gated_loudness = GetLoudnessForPower(rel_gated_avg_power);
+  return ClampAndSanitizeDBFS(rel_gated_loudness);
+}
+
 std::optional<EbuR128Analyzer::LRAStats> EbuR128Analyzer::GetLoudnessRangeStats(
     bool* is_stable) const {
   // Cannot compute any LRA stats if there are no momentary measurements.
